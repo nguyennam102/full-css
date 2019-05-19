@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" type="text/css" href="css.css" />
+	<title>Horizontal Page Scroll On Mousemove</title>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href="#">Giới Thiệu</a>
+			<img src="image/t1.jpg">
+		</li>
+		<li>
+			<a href="#">Thông Tin</a>
+			<img src="image/t2.jpg">
+		</li>
+		<li>
+			<a href="#">Kỹ Năng</a>
+			<img src="image/t3.jpg">
+		</li>
+		<li>
+			<a href="#">Mục tiêu</a>
+			<img src="image/t4.jpg">
+		</li>
+		<li>
+			<a href="#">Kinh Nghiệm</a>
+			<img src="image/t5.jpg">
+		</li>
+		<li>
+			<a href="#">Học Vấn</a>
+			<img src="image/t6.jpg">
+		</li>
+	</ul>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		  var docWidth = $('body').width(),
+		    slidesWidth = $('ul').width(),
+		    rangeX = slidesWidth - docWidth,
+		    $images = $('ul');
+		    $(document).on('mousemove', function(e) {
+			  var mouseX = e.pageX,
+			    offset = mouseX / docWidth * slidesWidth - mouseX / 2;
+			  	$images.css({
+			    	'-webkit-transform': 'translate3d(' + -offset + 'px,0,0)',
+			    	'transform': 'translate3d(' + -offset + 'px,0,0)'
+			  	});
+			});
+		});
+	</script>
+</body>
+</html>
